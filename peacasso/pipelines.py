@@ -285,6 +285,7 @@ class StableDiffusionPipeline(DiffusionPipeline):
 
         # scale and decode the image latents with vae
         has_nsfw_concept = None
+        print(test)
         if return_intermediates:
             image = intermediate_images[-1]
         else:
