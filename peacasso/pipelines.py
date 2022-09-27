@@ -285,17 +285,16 @@ class StableDiffusionPipeline(DiffusionPipeline):
 
         # scale and decode the image latents with vae
         has_nsfw_concept = None
-        print(test)
         if return_intermediates:
             image = intermediate_images[-1]
         else:
             image = decode_image(latents, self.vae)
-            safety_cheker_input = self.feature_extractor(
-                self.numpy_to_pil(image), return_tensors="pt"
-            ).to(self.device)
-            image, has_nsfw_concept = self.safety_checker(
-                images=np.asarray(image), clip_input=safety_cheker_input.pixel_values
-            )
+ #           safety_cheker_input = self.feature_extractor(
+ #               self.numpy_to_pil(image), return_tensors="pt"
+  #          ).to(self.device)
+#            image, has_nsfw_concept = self.safety_checker(
+#                images=np.asarray(image), clip_input=safety_cheker_input.pixel_values
+ #           )
             image = self.numpy_to_pil(image)
 
         return {
